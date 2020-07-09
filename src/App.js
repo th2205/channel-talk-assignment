@@ -1,5 +1,11 @@
 import React from 'react';
+import GlobalStyles from './components/GlobalStyles';
 
 export default function App() {
-  return <div>hello word!</div>;
+  return (
+    <>
+      <GlobalStyles />
+      <div>hello word!</div>
+    </>
+  );
 }
