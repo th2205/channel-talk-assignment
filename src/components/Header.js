@@ -50,7 +50,7 @@ export default withRouter(function Header({ location: { pathname } }) {
           </SLink>
         </Item>
         <Item current={pathname === '/add'}>
-          <SLink>
+          <SLink to="/add">
             <AiOutlinePlusCircle size={25} />
           </SLink>
         </Item>

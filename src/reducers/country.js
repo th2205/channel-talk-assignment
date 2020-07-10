@@ -2,7 +2,8 @@ import {
   GET_COUNTRIES_REQUEST,
   GET_COUNTRIES_SUCCESS,
   GET_COUNTRIES_FAILURE,
-  CHANGE_SORT_ORDER
+  CHANGE_SORT_ORDER,
+  ADD_COUNTRY
 } from '../constants/actionTypes';
 
 const initialState = {
@@ -45,6 +46,11 @@ export const changeSortOrder = (target) => ({
   target
 });
 
+export const addCountry = (country) => ({
+  type: ADD_COUNTRY,
+  country
+});
+
 export const country = (state = initialState, action) => {
   switch (action.type) {
     case GET_COUNTRIES_REQUEST:
@@ -75,6 +81,11 @@ export const country = (state = initialState, action) => {
           : sortState === 'ascending'
           ? 'descending'
           : 'ascending'
+      };
+    case ADD_COUNTRY:
+      return {
+        ...state,
+        countries: [...state.countries, action.country]
       };
     default:
       return {
