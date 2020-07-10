@@ -9,7 +9,7 @@ export default function HomeContainer() {
   const dispatch = useDispatch();
 
   const handlFieldClick = (e) => {
-    dispatch(changeSortOrder(e.target.id));
+    dispatch(changeSortOrder(e.target.textContent));
   };
 
   useEffect(() => {

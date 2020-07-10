@@ -2,11 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 export default function Field({ name, onFieldClick }) {
-  return (
-    <Item id="name" onClick={onFieldClick}>
-      {name}
-    </Item>
-  );
+  return <Item onClick={onFieldClick}>{name}</Item>;
 }
 
 const Item = styled.p`
