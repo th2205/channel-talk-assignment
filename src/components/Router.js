@@ -5,14 +5,14 @@ import {
   Redirect,
   Switch
 } from 'react-router-dom';
-import Home from '../containers/CountryContainer';
+import HomeContainer from '../containers/HomeContainer';
 import Header from './Header';
 
 export default () => (
   <Router>
     <Header />
     <Switch>
-      <Route path="/" exact component={Home} />
+      <Route path="/" exact component={HomeContainer} />
       <Redirect from="*" to="/" />
     </Switch>
   </Router>
