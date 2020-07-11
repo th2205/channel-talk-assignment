@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import { GrHome } from 'react-icons/gr';
 import { AiOutlineSearch, AiOutlinePlusCircle } from 'react-icons/ai';
+import { ICON_SIZE } from '../constants/constant';
 
 const HeaderContainer = styled.header`
   color: #000000;
@@ -41,17 +42,17 @@ export default withRouter(function Header({ location: { pathname } }) {
       <List>
         <Item current={pathname === '/'}>
           <SLink to="/">
-            <GrHome size={25} />
+            <GrHome size={ICON_SIZE} />
           </SLink>
         </Item>
         <Item current={pathname === '/search'}>
           <SLink to="/search">
-            <AiOutlineSearch size={25} />
+            <AiOutlineSearch size={ICON_SIZE} />
           </SLink>
         </Item>
         <Item current={pathname === '/add'}>
           <SLink to="/add">
-            <AiOutlinePlusCircle size={25} />
+            <AiOutlinePlusCircle size={ICON_SIZE} />
           </SLink>
         </Item>
       </List>

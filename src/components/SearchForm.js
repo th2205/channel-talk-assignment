@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { ICON_SIZE } from '../constants/constant';
 
 export default function SearchForm({ searchWord, onSearchWordChange }) {
   return (
     <SearchFormContainter>
-      <AiOutlineSearch size={30} />
+      <AiOutlineSearch size={ICON_SIZE} />
       <SearchInput
         type="text"
         value={searchWord}
