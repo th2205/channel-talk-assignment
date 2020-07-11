@@ -1,6 +1,10 @@
 import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { searchCountries, changeSearchWord } from '../reducers/country';
+import {
+  searchCountries,
+  changeSearchWord,
+  removeCountry
+} from '../reducers/country';
 import SearchForm from '../components/SearchForm';
 import SearchResult from '../components/SearchResult';
 
@@ -16,6 +20,10 @@ export default function SearchContainer({ history }) {
     },
     [dispatch]
   );
+
+  const handlRemoveButtonClick = (countryName) => {
+    dispatch(removeCountry(countryName));
+  };
 
   const filterCountries = () => {
     return countries.filter((country) => {
@@ -51,7 +59,10 @@ export default function SearchContainer({ history }) {
         searchWord={searchWord}
         onSearchWordChange={handleSearchWordChange}
       />
-      <SearchResult searchResult={searchResult} />
+      <SearchResult
+        searchResult={searchResult}
+        handlRemoveButtonClick={handlRemoveButtonClick}
+      />
     </>
   );
 }

@@ -4,6 +4,7 @@ import {
   GET_COUNTRIES_FAILURE,
   CHANGE_SORT_ORDER,
   ADD_COUNTRY,
+  REMOVE_COUNTRY,
   SEARCH_COUNTRIES,
   CHANGE_SEARCH_WORD
 } from '../constants/actionTypes';
@@ -41,6 +42,11 @@ export const changeSortOrder = (target) => ({
 export const addCountry = (country) => ({
   type: ADD_COUNTRY,
   country
+});
+
+export const removeCountry = (countryName) => ({
+  type: REMOVE_COUNTRY,
+  countryName
 });
 
 export const searchCountries = (countries) => ({
@@ -100,6 +106,16 @@ export const country = (state = initialState, action) => {
       return {
         ...state,
         countries: [...state.countries, action.country]
+      };
+    case REMOVE_COUNTRY:
+      return {
+        ...state,
+        countries: state.countries.filter(
+          (country) => country.name !== action.countryName
+        ),
+        searchResult: state.searchResult.filter(
+          (country) => country.name !== action.countryName
+        )
       };
     case SEARCH_COUNTRIES:
       return {

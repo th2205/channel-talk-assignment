@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadCountries } from '../thunk/country';
-import { changeSortOrder } from '../reducers/country';
+import { changeSortOrder, removeCountry } from '../reducers/country';
 import CountryList from '../components/CountryList';
 
 export default function HomeContainer() {
@@ -10,6 +10,10 @@ export default function HomeContainer() {
 
   const handlFieldClick = (e) => {
     dispatch(changeSortOrder(e.target.textContent));
+  };
+
+  const handlRemoveButtonClick = (countryName) => {
+    dispatch(removeCountry(countryName));
   };
 
   useEffect(() => {
@@ -21,7 +25,11 @@ export default function HomeContainer() {
       {isLoading || !countries.length ? (
         <div>loading...</div>
       ) : (
-        <CountryList countries={countries} onFieldClick={handlFieldClick} />
+        <CountryList
+          countries={countries}
+          onFieldClick={handlFieldClick}
+          handlRemoveButtonClick={handlRemoveButtonClick}
+        />
       )}
     </>
   );

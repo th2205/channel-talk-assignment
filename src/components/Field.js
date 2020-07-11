@@ -7,6 +7,8 @@ export default function Field({ name, onFieldClick }) {
 
 const Item = styled.p`
   width: 7rem;
+  font-size: 1.3rem;
+  color: rgb(70, 119, 255);
   text-align: center;
   cursor: pointer;
 `;

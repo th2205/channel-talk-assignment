@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Country({ country }) {
+export default function Country({ country, onRemoveButtonClick }) {
   return (
     <CountryContainer>
       <Item>{country.name}</Item>
@@ -9,12 +9,15 @@ export default function Country({ country }) {
       <Item>{country.callingCodes[0] || '-'}</Item>
       <Item>{country.capital || '-'}</Item>
       <Item>{country.region || '-'}</Item>
+      <RemoveButton onClick={() => onRemoveButtonClick(country.name)}>
+        삭제
+      </RemoveButton>
     </CountryContainer>
   );
 }
 
 const CountryContainer = styled.div`
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -26,4 +29,11 @@ const CountryContainer = styled.div`
 const Item = styled.p`
   width: 7rem;
   text-align: center;
+`;
+
+const RemoveButton = styled.button`
+  width: 7rem;
+  height: 2rem;
+  background-color: red;
+  color: #ffffff;
 `;

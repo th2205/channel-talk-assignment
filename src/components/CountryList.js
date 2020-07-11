@@ -3,23 +3,39 @@ import styled from 'styled-components';
 import Country from './County';
 import Field from './Field';
 
-export default function CountryList({ countries, onFieldClick }) {
+export default function CountryList({
+  countries,
+  onFieldClick,
+  handlRemoveButtonClick
+}) {
+  const fields = Object.keys(countries[0]);
+  fields.push('');
   return (
-    <>
+    <Section>
       <ListContainer>
-        {Object.keys(countries[0]).map((fieldName, index) => (
+        {fields.map((fieldName, index) => (
           <Field key={index} name={fieldName} onFieldClick={onFieldClick} />
         ))}
       </ListContainer>
       {countries.map((country) => (
-        <Country key={country.name} country={country} />
+        <Country
+          key={country.name}
+          country={country}
+          onRemoveButtonClick={handlRemoveButtonClick}
+        />
       ))}
-    </>
+    </Section>
   );
 }
 
-const ListContainer = styled.div`
+const Section = styled.section`
   width: 80%;
+  max-width: 1000px;
+  margin: 3rem auto;
+`;
+
+const ListContainer = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
