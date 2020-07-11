@@ -14,7 +14,6 @@ export default function SearchForm({ searchWord, onSearchWordChange }) {
       />
     </SearchFormContainter>
   );
-  s;
 }
 
 const SearchFormContainter = styled.div`
