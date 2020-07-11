@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addCountry } from '../reducers/country';
+import { addCountry } from '../constants/actions';
 import Form from '../components/Form';
 
 export default function FormContainer() {

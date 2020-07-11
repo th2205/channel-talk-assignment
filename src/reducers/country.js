@@ -7,7 +7,7 @@ import {
   REMOVE_COUNTRY,
   SEARCH_COUNTRIES,
   CHANGE_SEARCH_WORD
-} from '../constants/actionTypes';
+} from '../constants/actions';
 
 const changeOrder = (countries, targetField, sortState) => {
   if (!sortState) {
@@ -33,31 +33,6 @@ const changeOrder = (countries, targetField, sortState) => {
     });
   }
 };
-
-export const changeSortOrder = (target) => ({
-  type: CHANGE_SORT_ORDER,
-  target
-});
-
-export const addCountry = (country) => ({
-  type: ADD_COUNTRY,
-  country
-});
-
-export const removeCountry = (countryName) => ({
-  type: REMOVE_COUNTRY,
-  countryName
-});
-
-export const searchCountries = (countries) => ({
-  type: SEARCH_COUNTRIES,
-  countries
-});
-
-export const changeSearchWord = (text) => ({
-  type: CHANGE_SEARCH_WORD,
-  text
-});
 
 const initialState = {
   countries: [],

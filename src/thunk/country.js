@@ -1,22 +1,9 @@
 import {
-  GET_COUNTRIES_REQUEST,
-  GET_COUNTRIES_SUCCESS,
-  GET_COUNTRIES_FAILURE
-} from '../constants/actionTypes';
+  getCountriesRequest,
+  getCountriesSuccess,
+  getCountriesFailure
+} from '../constants/actions';
 import { fetchCountries } from '../utils/api';
-
-const getCountriesRequest = () => ({
-  type: GET_COUNTRIES_REQUEST
-});
-
-const getCountriesSuccess = (countries) => ({
-  type: GET_COUNTRIES_SUCCESS,
-  data: countries
-});
-
-const getCountriesFailure = () => ({
-  type: GET_COUNTRIES_FAILURE
-});
 
 export const loadCountries = () => async (dispatch) => {
   dispatch(getCountriesRequest());

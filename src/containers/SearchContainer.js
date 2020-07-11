@@ -4,7 +4,7 @@ import {
   searchCountries,
   changeSearchWord,
   removeCountry
-} from '../reducers/country';
+} from '../constants/actions';
 import SearchForm from '../components/SearchForm';
 import SearchResult from '../components/SearchResult';
 
