@@ -3,18 +3,10 @@ import {
   GET_COUNTRIES_SUCCESS,
   GET_COUNTRIES_FAILURE,
   CHANGE_SORT_ORDER,
-  ADD_COUNTRY
+  ADD_COUNTRY,
+  SEARCH_COUNTRIES,
+  CHANGE_SEARCH_WORD
 } from '../constants/actionTypes';
-
-const initialState = {
-  countries: [],
-  nameSort: null,
-  alpha2CodeSort: null,
-  callingCodesSort: null,
-  capitalSort: null,
-  regionsSort: null,
-  isLoading: false
-};
 
 const changeOrder = (countries, targetField, sortState) => {
   if (!sortState) {
@@ -51,6 +43,28 @@ export const addCountry = (country) => ({
   country
 });
 
+export const searchCountries = (countries) => ({
+  type: SEARCH_COUNTRIES,
+  countries
+});
+
+export const changeSearchWord = (text) => ({
+  type: CHANGE_SEARCH_WORD,
+  text
+});
+
+const initialState = {
+  countries: [],
+  searchResult: [],
+  searchWord: '',
+  nameSort: null,
+  alpha2CodeSort: null,
+  callingCodesSort: null,
+  capitalSort: null,
+  regionsSort: null,
+  isLoading: false
+};
+
 export const country = (state = initialState, action) => {
   switch (action.type) {
     case GET_COUNTRIES_REQUEST:
@@ -86,6 +100,16 @@ export const country = (state = initialState, action) => {
       return {
         ...state,
         countries: [...state.countries, action.country]
+      };
+    case SEARCH_COUNTRIES:
+      return {
+        ...state,
+        searchResult: action.countries
+      };
+    case CHANGE_SEARCH_WORD:
+      return {
+        ...state,
+        searchWord: action.text
       };
     default:
       return {

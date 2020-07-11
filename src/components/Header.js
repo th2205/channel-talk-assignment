@@ -45,7 +45,7 @@ export default withRouter(function Header({ location: { pathname } }) {
           </SLink>
         </Item>
         <Item current={pathname === '/search'}>
-          <SLink>
+          <SLink to="/search">
             <AiOutlineSearch size={25} />
           </SLink>
         </Item>
