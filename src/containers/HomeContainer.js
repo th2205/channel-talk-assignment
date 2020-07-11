@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadCountries } from '../thunk/country';
 import { changeSortOrder, removeCountry } from '../constants/actions';
 import CountryList from '../components/CountryList';
+import Loading from '../components/Loading';
 
 export default function HomeContainer() {
   const { countries, isLoading } = useSelector((state) => state.country);
@@ -23,7 +24,7 @@ export default function HomeContainer() {
   return (
     <>
       {isLoading || !countries.length ? (
-        <div>loading...</div>
+        <Loading />
       ) : (
         <CountryList
           countries={countries}

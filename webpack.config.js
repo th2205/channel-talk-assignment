@@ -22,6 +22,10 @@ module.exports = {
         ]
       },
       {
+        test: /\.svg$/,
+        loader: 'svg-url-loader'
+      },
+      {
         test: /\.css$/,
         use: [CssPlugin.loader, 'css-loader']
       }
